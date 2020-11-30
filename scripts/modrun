@@ -1,0 +1,98 @@
+#!/usr/bin/env python
+import fileinput
+import sys
+import argparse
+import os
+
+
+# doc strings
+desc_str = "Modifies your run_slurm.sh file. Assign job name by -j option. \nTo assign nodes, use -n option. \nIf you want to assign job in random nodes in g1, use option -r instead of -n."
+help_f = "if your slrum batch file has different name, use this option to specify it."
+help_j = "your job name. Default : title line of POSCAR"
+help_n = "usage : node1,node2...etc ex)65,66,67"
+help_r = "usage : number of g1 nodes"
+
+# arguments
+parser = argparse.ArgumentParser(description=desc_str)
+parser.add_argument("-f", default="run_slurm.sh", help=help_f)
+parser.add_argument("-j", default=None, help=help_j)
+parser.add_argument("-n", default=None, type=str, help=help_n)
+parser.add_argument("-r", default=None, type=int, help=help_r)
+args = parser.parse_args()
+
+# check file
+filename = args.f
+if filename not in os.listdir():
+    print("{} does not exist!".format(filename))
+    sys.exit()
+
+# node selection
+node_ranges = dict(
+    g1=list(range(1, 47)), g2=list(range(47, 77)), g3=list(range(77, 94)), g4=[94, 95]
+)
+if args.n != None:
+    if args.r != None:
+        print("invalid arguments : please selected between '-r' and '-n'")
+    nodelist = list(map(int, [node for node in args.n.split(",")]))
+    nodestring = ",".join([f"n{str(node).rjust(3,'0')}" for node in nodelist])
+    n_nodes = len(nodelist)
+    for node, nrange in node_ranges.items():
+        if set([i in nrange for i in nodelist]) == {True}:
+            nodetype = node
+            if nodetype == "g1":
+                ncores = 16
+            elif nodetype == "g2":
+                ncores = 20
+            elif nodetype == "g3":
+                ncores = 24
+            elif nodetype == "g4":
+                ncores = int(input("g4 selected. Enter the number of cores: "))
+        elif len(set([i in nrange for i in nodelist])) > 1:
+            print("ERROR : selected multiple types of nodes.")
+            sys.exit()
+else:
+    n_nodes = args.r
+    nodetype = "g1"
+    ncores = 16
+    nodestring = ""
+
+# replace lines
+for line in fileinput.input(filename, inplace=True):
+    if args.j != None:
+        if "-J" in line:
+            line = line.replace(line, "#SBATCH -J {}\n".format(args.j))
+
+    if "-p" in line:
+        line = line.replace(line, "#SBATCH -p {}\n".format(nodetype))
+    if "-N" in line:
+        line = line.replace(line, "#SBATCH -N {}\n".format(n_nodes))
+    if "#SBATCH -n" in line:
+        line = line.replace(line, "#SBATCH -n {}\n".format(n_nodes * ncores))
+    if args.r == None:
+        if "-w" in line:
+            line = line.replace(line, "#SBATCH -w, --nodelist={}\n".format(nodestring))
+    else:
+        if "-w" in line:
+            line = line.replace(line, "##SBATCH -w, --nodelist={}\n".format(nodestring))
+
+    sys.stdout.write(line)
+
+# show results
+if args.n != None:
+    if args.j == None:
+        with open("run_slurm.sh", "r") as f:
+            jobname = f.readlines()[1].split()[-1]
+        print(jobname.center(60, "-"))
+    else:
+        print(args.j.center(60, "-"))
+    print("node  : {}".format(nodetype))
+    print("        ({})".format(nodestring))
+    print("cores : {}\n".format(ncores * n_nodes))
+elif args.r != None:
+    if args.j == None:
+        with open("POSCAR", "r") as f:
+            jobname = f.readlines()[0][:-1]
+        print(jobname.center(60, "-"))
+    else:
+        print(args.j.center(60, "-"))
+    print("randomized in g1 with {} nodes\n".format(args.r))

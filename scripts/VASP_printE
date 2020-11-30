@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+from ase.io import read
+from sys import argv
+
+
+vasprun = read("vasprun.xml", ":")
+
+if len(argv) == 1 or argv[1] == "-a":
+    i = 1
+    for index in vasprun:
+        print "Step {}".format(i), index.get_potential_energy()
+        i += 1
+elif argv[1] == "-c":
+    print "E =", vasprun[-1].get_potential_energy()

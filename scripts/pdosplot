@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+from parse_doscar import Doscar
+import argparse
+
+parser = argparse.ArgumentParser(description="tdos")
+parser.add_argument("-a", nargs="+", type=str)
+parser.add_argument("-Elim", default=None, nargs="+", type=float)
+parser.add_argument("-doslim", default=None, nargs="+", type=float)
+parser.add_argument("-p", default=True)
+parser.add_argument("-s", default="PDOS")
+args = parser.parse_args()
+
+dos = Doscar()
+if args.Elim != None:
+    Elim = tuple(args.Elim)
+else:
+    Elim = None
+if args.doslim != None:
+    doslim = tuple(args.doslim)
+else:
+    doslim = None
+dos.plot_pdos(args.a, Elim, doslim, args.p, args.s)

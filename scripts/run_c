@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+gcc $1 -o $1_exec
+./$1_exec
+rm $1_exec

@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+import os
+
+with open('INCAR','r') as f:
+    incar = [line for line in f.readlines() if line.startswith('#') is False]    
+with open('run_slurm.sh','r') as f:
+    slurm = [line for line in f.readlines() if line.startswith('#S')]
+print('INCAR tags'.center(50,'*'))
+for line in incar:
+    print(line[:-1])
+
+print('run_slurm.sh'.center(50,'*'))
+for line in slurm:
+    print(line[:-1])
+
+while True:
+    submit = input("\nSubmit this job? [y/n]")
+    if submit == 'y':
+        os.system('sbatch run_slurm.sh')
+        break
+    elif submit == 'n':
+        print('Terminated')
+        break
+
+
+
+
+    
