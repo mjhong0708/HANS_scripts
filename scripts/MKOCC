@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-x=$1
-touch OCCMATRIX
-echo $x >> OCCMATRIX
-for (( i=1; i<$x+1; i++ ));do
-echo $i 3 2 >> OCCMATRIX
-cat ~/bin/OM >> OCCMATRIX
-echo $n >> OCCMATRIX
-done
