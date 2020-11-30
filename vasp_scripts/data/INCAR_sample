@@ -1,0 +1,77 @@
+ #[Run]
+   NWRITE =      2    
+   ISTART =      1    
+   ICHARG =      2    
+   INIWAV =      1    
+   LCHARG  = .TRUE.
+   LWAVE   = .TRUE.
+
+ #[Relaxation]
+   PREC   = high    
+   #SYMPREC = 1E-06
+   ENCUT  = 600     
+   ISPIN  = 2
+   ISYM = -1
+
+   EDIFF  =  1E-04
+   #EDIFFG = -0.02
+   LREAL  =  .FALSE.     #real-space projection (.FALSE., .TRUE., On, Auto)
+   ALGO = Normal     #very fast, fast, normal
+   #IALGO  =     48   #algorithm (8=CG for small, 48=RMM for big systems)
+
+   NSW = 0
+   NELM = 300
+   NELMDL = -20
+
+   ISIF = 2
+   IBRION = 2
+   #POTIM = 0.15
+
+   ISMEAR = -5
+   #SIGMA = 0.02
+   MAGMOM = 2.0 2.0 -2.0 -2.0 2.0 2.0 -2.0 -2.0 -2.0 -2.0 2.0 2.0 -2.0 -2.0 2.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 2.0 
+   LMAXMIX = 6
+#[GGA+U]
+   LDAU = .TRUE.
+   LDAUTYPE = 2
+   LDAUL = 3 -1 -1
+   LDAUU =  4.0 0.0 0.0
+   LDAUJ =  0.0 0.0 0.0
+   LDAUPRINT = 2
+
+   #OCCEXT = 1
+#[Dipole]
+   #IDIPOL =  3
+   #DIPOL  = 0.0  0.0  0.414620012
+   #LDIPOL = .TRUE.
+
+#[Vander Waals]
+   #LVDW    = .TRUE.   #VDW-D2
+   IVDW    =  11      #VDW-D3
+
+
+# DOS
+   NBANDS = 400
+   LORBIT =  11
+   NEDOS = 2000
+
+# MD
+  #IALGO =
+  #IBRION = 0
+  #TEBEG = 298
+  #TEEND = 298
+  #POTIM = 1
+  #NBLOCK = 1
+
+# Efficiency of calculations
+   #NPAR = 4
+   #[# small number of nodes]
+   #LPLANE = .TRUE. # If many nodes are used, turn off!!
+   NCORE = 16  # number of cores per node
+   #LSCALU = .FALSE.
+   #NSIM = 4
+
+   #[# massive number of nodes]
+   #LPLANE = .FALSE.
+   #NPAR = #sqrt(number of cores)
+   #NSIM = 1

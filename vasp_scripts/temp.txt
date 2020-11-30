@@ -1,0 +1,106 @@
+Hostname Partition Node Num_CPU CPUload 
+State Use/Tot (GB) (MB) JobId 
+n001 g1 alloc 16 16 electrolyte
+n002 g1 down* 0 16 
+n003 g1 alloc 16 16 electrolyte
+n004 g1 alloc 16 16 hsj1021
+n005 g1 alloc 16 16 hsj1021
+n006 g1 alloc 16 16 hsj1021
+n007 g1 alloc 16 16 hsj1021
+n008 g1 alloc 16 16 ju9407
+n009 g1 alloc 16 16 ju9407
+n010 g1 alloc 16 16 ju9407
+n011 g1 alloc 16 16 ju9407
+n012 g1 alloc 16 16 ju9407
+n013 g1 alloc 16 16 electrolyte
+n014 g1 alloc 16 16 electrolyte
+n015 g1 alloc 16 16 electrolyte
+n016 g1 alloc 16 16 electrolyte
+n017 g1 alloc 16 16 electrolyte
+n018 g1 alloc 16 16 electrolyte
+n019 g1 alloc 16 16 ghlwjd0403
+n020 g1 alloc 16 16 poong
+n021 g1 alloc 16 16 poong
+n022 g1 alloc 16 16 poong
+n023 g1 alloc 16 16 poong
+n024 g1 alloc 16 16 poong
+n025 g1 alloc 16 16 poong
+n026 g1 alloc 16 16 poong
+n027 g1 alloc 16 16 poong
+n028 g1 alloc 16 16 singsingi
+n029 g1 alloc 16 16 singsingi
+n030 g1 alloc 16 16 singsingi
+n031 g1 alloc 16 16 singsingi
+n032 g1 alloc 16 16 singsingi
+n033 g1 alloc 16 16 singsingi
+n034 g1 alloc 16 16 singsingi
+n035 g1 alloc 16 16 singsingi
+n036 g1 alloc 16 16 ghlwjd0403
+n037 g1 alloc 16 16 ghlwjd0403
+n038 g1 alloc 16 16 ghlwjd0403
+n039 g1 alloc 16 16 ghlwjd0403
+n040 g1 alloc 16 16 ghlwjd0403
+n041 g1 alloc 16 16 ghlwjd0403
+n042 g1 alloc 16 16 ghlwjd0403
+n043 g1 alloc 16 16 hsj1021
+n044 g1 alloc 16 16 hsj1021
+n045 g1 alloc 16 16 hsj1021
+n046 g1 alloc 16 16 hsj1021
+n047 g2 idle 0 20 
+n048 g2 idle 0 20 
+n049 g2 alloc 20 20 hmj0327
+n050 g2 alloc 20 20 hmj0327
+n051 g2 alloc 20 20 hmj0327
+n052 g2 alloc 20 20 hmj0327
+n053 g2 alloc 20 20 hmj0327
+n054 g2 alloc 20 20 hmj0327
+n055 g2 alloc 20 20 hmj0327
+n056 g2 alloc 20 20 hmj0327
+n057 g2 alloc 20 20 electrolyte
+n058 g2 alloc 20 20 taowei0817
+n059 g2 alloc 20 20 taowei0817
+n060 g2 alloc 20 20 taowei0817
+n061 g2 mix 12 20 choah
+n062 g2 alloc 20 20 taowei0817
+n063 g2 idle 0 20 
+n064 g2 idle 0 20 
+n065 g2 idle 0 20 
+n066 g2 alloc 20 20 jye.park
+n067 g2 alloc 20 20 jye.park
+n068 g2 alloc 20 20 jye.park
+n069 g2 alloc 20 20 jye.park
+n070 g2 alloc 20 20 hsj1021
+n071 g2 alloc 20 20 hsj1021
+n072 g2 alloc 20 20 hsj1021
+n073 g2 alloc 20 20 hsj1021
+n074 g2 alloc 20 20 choah
+n075 g2 alloc 20 20 choah
+n076 g2 alloc 20 20 choah
+n077 g3 alloc 24 24 csj356093
+n078 g3 alloc 24 24 csj356093
+n079 g3 alloc 24 24 taowei0817
+n080 g3 alloc 24 24 taowei0817
+n081 g3 alloc 24 24 csj356093
+n082 g3 alloc 24 24 electrolyte
+n083 g3 alloc 24 24 csj356093
+n084 g3 alloc 24 24 hsj1021
+n085 g3 alloc 24 24 hsj1021
+n086 g3 alloc 24 24 taowei0817
+n087 g3 alloc 24 24 taowei0817
+n088 g3 alloc 24 24 taowei0817
+n089 g3 alloc 24 24 taowei0817
+n090 g3 alloc 24 24 taowei0817
+n091 g3 alloc 24 24 mka1203
+n092 g3 alloc 24 24 electrolyte
+n093 g3 alloc 24 24 electrolyte
+n094 g4 alloc 96 96 electrolyte
+n095 g4 alloc 96 96 electrolyte
+n096 g5* alloc 32 32 jye.park
+n097 g5* alloc 32 32 jye.park
+n098 g5* alloc 32 32 jye.park
+n099 g5* alloc 32 32 ju9407
+n100 g5* alloc 32 32 ju9407
+n101 g5* alloc 32 32 ju9407
+n102 g5* idle 0 32 
+n103 g5* idle 0 32 
+n104 g5* alloc 32 32 electrolyte

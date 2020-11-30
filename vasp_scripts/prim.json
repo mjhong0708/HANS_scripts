@@ -1,0 +1,24 @@
+{
+    "basis": [
+        {"coordinate": [0.0, 0.0, 0.0], "occupant_dof": ["U"]},
+        {"coordinate": [0.5, 0.5, 0.0], "occupant_dof": ["U"]},
+        {"coordinate": [0.5, 0.0, 0.5], "occupant_dof": ["U"]},
+        {"coordinate": [0.0, 0.5, 0.5], "occupant_dof": ["U"]},
+        {"coordinate": [0.25, 0.25, 0.25], "occupant_dof": ["O"]},
+        {"coordinate": [0.25, 0.75, 0.25], "occupant_dof": ["O"]},
+        {"coordinate": [0.75, 0.25, 0.25], "occupant_dof": ["O"]},
+        {"coordinate": [0.75, 0.75, 0.25], "occupant_dof": ["O"]},
+        {"coordinate": [0.25, 0.25, 0.75], "occupant_dof": ["O"]},
+        {"coordinate": [0.75, 0.25, 0.75], "occupant_dof": ["O"]},
+        {"coordinate": [0.25, 0.75, 0.75], "occupant_dof": ["O"]},
+        {"coordinate": [0.75, 0.75, 0.75], "occupant_dof": ["O"]},
+    ],
+    "coordinate_mode": "Fractional",
+    "description": "UO2_fcc",
+    "lattice_vectors": [
+        [5.4203457832, 0.0, 0.0],
+        [0.0, 5.4203457832, 0.0],
+        [0.0, 0.0, 5.4203457832],
+    ],
+    "title": "UO2_fcc",
+}
