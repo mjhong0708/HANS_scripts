@@ -1,2 +1,2 @@
 # HANS_scripts
-Useful scripts for HANS Group
+Useful scripts for HANS Group.
