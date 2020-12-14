@@ -75,17 +75,24 @@ os.system("vef.py")
 
 fe = np.loadtxt("fe.dat", skiprows=1).T
 
-fig, ax = plt.subplots(figsize=figsize_in_cm(10,7))
-ax2 = ax.twinx()
-ax.set_xlabel("Ionic step")
-ax.set_ylabel("Force (eV/$\AA$)",color='blue')
-ax.set_yscale('log')
+fig, ax = plt.subplots(nrows=1, ncols=2, figsize=figsize_in_cm(20,7))
+
+ax2 = ax[0].twinx()
+ax[0].set_xlabel("Ionic step")
+ax[0].set_ylabel("Force (eV/$\AA$)",color='blue')
+ax[0].set_yscale('log')
 ax2.set_ylabel("Total energy (eV)", color='red')
-ax.plot(fe[0],fe[1],'bo-', lw=lw,ms=ms,markeredgewidth=0.25,markerfacecolor='none',label='force')
+ax[0].plot(fe[0],fe[1],'bo-', lw=lw,ms=ms,markeredgewidth=0.25,markerfacecolor='none',label='force')
 ax2.plot(fe[0],fe[2],'rs--', lw=lw,ms=ms-0.25,markeredgewidth=0.25,markerfacecolor='none',label='energy')
 
-ax.tick_params(axis='y', which='both', colors='b')
+ax[0].tick_params(axis='y', which='both', colors='b')
 ax2.tick_params(axis='y',which='both', colors='r')
+
+ax[1].set_xlabel("Ionic step")
+ax[1].set_ylabel("$|\Delta E| (eV)$")
+E_diff = np.abs(fe[2][1:] - fe[2][:-1])
+ax[1].plot(fe[0][1:],E_diff,'ko-', lw=lw,ms=ms,markeredgewidth=0.25,markerfacecolor='none',label='$|\Delta E| (eV)$')
+ax[1].set_yscale('log')
 plt.tight_layout()
 plt.savefig('vasp_convergence.png', dpi=600)
 plt.show()
